@@ -106,6 +106,15 @@ Feature: An example
     Given I am on the main page our instructor
     When I click the instagram icon
 
+  Scenario:21 Payment information page
+    Given I am on the Payment Information page
+    When the Card Holder name is "MIMI" fields
+    And the card number value of "44444" is inputted
+    * the cvc value of "555" is inputted
+    * the expire month value "June" card is selected
+    * the expire year value "2025" card is selected
+    Then we go to the final registration page
+
 
 
 

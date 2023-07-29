@@ -12,16 +12,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 public class StepDefinitions {
-
     private WebDriver driver;
-
     ChromeOptions options = new ChromeOptions();
     MainPage mainPage;
     FundamentalPage fundamentalPage;
     PersonalInformation personalInformation;
     ContactInformation contactInformation;
     CourseOption courseOption;
-
     PaymentInformation paymentInformation;
     FinalPageRegistration finalPageRegistration;
 
@@ -90,7 +87,7 @@ public class StepDefinitions {
             personalInformation.FillInPersonalInformationWithValidData();
             contactInformation.FillInContactInformationWithValidData();
             courseOption.FillInCourseOptionWithValidData();
-            paymentInformation.FillInPaymentInformationWithValidData();
+            paymentInformation.FillInPaymentInformationWithValidData(driver);
 
         }
     @Given("I am on the main page our instructor")
@@ -272,6 +269,16 @@ public class StepDefinitions {
     @And("I selected the 2025")
     public void select_year(){
         paymentInformation.setSelectYear();
+    }
+    @And("the expire month value {string} card is selected")
+    public void select_expire_month_card(String month){
+        paymentInformation.selectMonthByXpath(driver, month);
+    }
+
+    @And("the expire year value {string} card is selected")
+    public void select_expire_year_card(String year)  {
+        paymentInformation.selectYearByXpath(driver, year);
+
     }
 ////////////////////////@THEN/////////////////////////////////////
     @Then("we push the next button")
