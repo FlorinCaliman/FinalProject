@@ -6,8 +6,10 @@ import io.cucumber.java.bs.A;
 import io.cucumber.java.en.*;
 
 import io.cucumber.java.it.Ma;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Assertions.*;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
@@ -23,8 +25,6 @@ public class StepDefinitions {
     FinalPageRegistration finalPageRegistration;
 
 
-
-
     public StepDefinitions() {
         options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
@@ -36,7 +36,6 @@ public class StepDefinitions {
         courseOption = new CourseOption(driver);
         paymentInformation = new PaymentInformation(driver);
         finalPageRegistration = new FinalPageRegistration(driver);
-
 
 
     }
@@ -54,13 +53,15 @@ public class StepDefinitions {
 
 
     }
+
     @Given("I click to the start enrollment")
-    public void i_am_to_personal_information(){
+    public void i_am_to_personal_information() {
         driver.get("file:///C:/Users/calim/OneDrive/Desktop/Testing-Env-master/Testing-Env-master/routes/enrollment.html");
 
     }
+
     @Given("I am on the contact information page")
-    public void i_am_on_the_contact_information_page(){
+    public void i_am_on_the_contact_information_page() {
         driver.get("file:///C:/Users/calim/OneDrive/Desktop/Testing-Env-master/Testing-Env-master/routes/enrollment.html");
         personalInformation.FillInPersonalInformationWithValidData();
 
@@ -81,20 +82,22 @@ public class StepDefinitions {
         contactInformation.FillInContactInformationWithValidData();
         courseOption.FillInCourseOptionWithValidData();
     }
-    @Given("I am on the final page registration")
-            public void i_am_on_the_final_page_restration(){
-            driver.get("file:///C:/Users/calim/OneDrive/Desktop/Testing-Env-master/Testing-Env-master/routes/enrollment.html");
-            personalInformation.FillInPersonalInformationWithValidData();
-            contactInformation.FillInContactInformationWithValidData();
-            courseOption.FillInCourseOptionWithValidData();
-            paymentInformation.FillInPaymentInformationWithValidData(driver);
 
-        }
+    @Given("I am on the final page registration")
+    public void i_am_on_the_final_page_restration() {
+        driver.get("file:///C:/Users/calim/OneDrive/Desktop/Testing-Env-master/Testing-Env-master/routes/enrollment.html");
+        personalInformation.FillInPersonalInformationWithValidData();
+        contactInformation.FillInContactInformationWithValidData();
+        courseOption.FillInCourseOptionWithValidData();
+        paymentInformation.FillInPaymentInformationWithValidData(driver);
+
+    }
+
     @Given("I am on the main page our instructor")
     public void i_am_on_the_main_page_our_instructor() {
         driver.get("file:///C:/Users/calim/OneDrive/Desktop/Testing-Env-master/Testing-Env-master/index.html");
     }
- ////////// @WHEN //////////////////////////////////////////////////////////////////////////////////////////
+    ////////// @WHEN //////////////////////////////////////////////////////////////////////////////////////////
 
     @When("the email value of {string} is input")
     public void input_email_to_field(String string) {
@@ -158,8 +161,9 @@ public class StepDefinitions {
         Utils.scrollToElement(driver, mainPage.getDownPageHeader());
         mainPage.clickReturnButton();
     }
+
     @When("I click to return button from fundamental page")
-    public void click_return_button_from_fundamental_page(){
+    public void click_return_button_from_fundamental_page() {
         fundamentalPage.clickReturnButton();
     }
 
@@ -168,146 +172,188 @@ public class StepDefinitions {
     public void select_One_Option() {
         courseOption.setClickSoftwareTesting();
     }
+
     @When("the Card Holder name is {string} fields")
     public void write_The_Card_Holder_Fields(String string) {
         paymentInformation.inputHolderName(string);
     }
+
     @When("I clicked the return homepage button")
-            public void click_return_page_button() {
+    public void click_return_page_button() {
         finalPageRegistration.returnHomeButton();
     }
 
-        @When("I clicked the what you'll learn button")
-                public void what_you_learn_button(){
-            mainPage.WhatYouLearn();
-        }
-        @When("I click the instagram icon")
-                public void click_the_instagram_icon(){
-            Utils.scrollToElement(driver, mainPage.getOurInstructorHeader());
-            mainPage.getClickTheInstagramIcon();
+    @When("I clicked the what you'll learn button")
+    public void what_you_learn_button() {
+        mainPage.WhatYouLearn();
+    }
 
-        }
+    @When("I click the instagram icon")
+    public void click_the_instagram_icon() {
+        Utils.scrollToElement(driver, mainPage.getOurInstructorHeader());
+        mainPage.getClickTheInstagramIcon();
+
+    }
 
 
-
-
-  ///////////////@AND//////////////////////////////////////////////////////////////////////////////////////
-
+    ///////////////@AND//////////////////////////////////////////////////////////////////////////////////////
 
 
     @And("the first name value of {string} is inputted")
-    public void input_first_value(String string){
+    public void input_first_value(String string) {
         personalInformation.inputValueFirstNameField(string);
     }
+
     @And("the last name value of {string} is inputted")
-    public void input_last_value(String string){
+    public void input_last_value(String string) {
         personalInformation.inputValueLastNameField(string);
     }
+
     @And("the username value of {string} is inputted")
-    public void input_username_value(String string){
+    public void input_username_value(String string) {
         personalInformation.inputValueUserNameField(string);
     }
+
     @And("the password value of {string} is inputted")
-    public void input_password_value(String string){
+    public void input_password_value(String string) {
         personalInformation.inputValuePasswordField(string);
     }
+
     @And("the confirm password value of {string} is inputted")
-    public void input_confirm_password_value(String string){
+    public void input_confirm_password_value(String string) {
         personalInformation.inputValueConfirmPasswordField(string);
     }
 
 
     @And("the email value of {string} is inputted")
-    public void input_email_value(String string){
+    public void input_email_value(String string) {
         contactInformation.inputValueEmailField(string);
     }
+
     @And("the phone value of {string} is inputted")
-    public void input_phone_value(String string){
+    public void input_phone_value(String string) {
         contactInformation.inputValuePhoneField(string);
     }
+
     @And("the country value of {string} is inputted")
-    public void input_country_value(String string){
+    public void input_country_value(String string) {
         contactInformation.inputValueCountryField(string);
     }
+
     @And("the city value of {string} is inputted")
-    public void input_city_value(String string){
+    public void input_city_value(String string) {
         contactInformation.inputValueCityField(string);
     }
+
     @And("the post code value of {string} is inputted")
-    public void input_post_code_value(String string){
+    public void input_post_code_value(String string) {
         contactInformation.inputValuePostCodeField(string);
     }
+
     @And("I clicked the next button")
-
-
-    public void clicked_next_button(){
+    public void clicked_next_button() {
         courseOption.setClickNextButton();
     }
+
     @And("the card number value of {string} is inputted")
 
 
-
-    public void input_card_number_value(String string){
+    public void input_card_number_value(String string) {
         paymentInformation.inputCardNumber(string);
     }
+
     @And("the cvc value of {string} is inputted")
-    public void input_cvc_value(String string){
+    public void input_cvc_value(String string) {
         paymentInformation.inputCVC(string);
     }
+
     @And("I clicked to drop the select month")
-    public  void drop_the_month(){
+    public void drop_the_month() {
         paymentInformation.setClickDropMonth();
     }
+
     @And("I selected the May")
-    public void select_may(){
+    public void select_may() {
         paymentInformation.setSelectMay();
     }
+
     @And("I clicked to drop the select year")
-    public void drop_the_year(){
+    public void drop_the_year() {
         paymentInformation.setClickDropYear();
     }
+
     @And("I selected the 2025")
-    public void select_year(){
+    public void select_year() {
         paymentInformation.setSelectYear();
     }
+
     @And("the expire month value {string} card is selected")
-    public void select_expire_month_card(String month){
+    public void select_expire_month_card(String month) {
         paymentInformation.selectMonthByXpath(driver, month);
     }
 
     @And("the expire year value {string} card is selected")
-    public void select_expire_year_card(String year)  {
+    public void select_expire_year_card(String year) {
         paymentInformation.selectYearByXpath(driver, year);
 
     }
 ////////////////////////@THEN/////////////////////////////////////
+
+    @Then("the newsletter confirmation pop-up appears")
+    public void theNewsletterConfirmationPopUpAppears() {
+        driver.switchTo().alert().accept();
+    }
+
+    @Then("the newsletter confirmation pop-up is not appears")
+    public void theNewsletterConfirmationPopUpIsNotAppears() {
+        Assertions.assertTrue(driver.getPageSource().contains("error"));
+    }
+
+
     @Then("we push the next button")
-    public void click_next_button(){
+    public void click_next_button() {
         personalInformation.setClickNextButton();
     }
 
-    @Then("we go to the next page")
-    public void click_next2_button(){
-        contactInformation.setClickNextButton();
+   // @Then("we go to the next page")
+    //public void click_next2_button() {
+      //  contactInformation.setClickNextButton();
+    //}
+
+    //@Then("we go to the final registration page")
+    //public void click_final_next_button() {
+        //paymentInformation.setClickFinalNextButton();
+    //}
+
+
+
+
+    @Then("the {string} page opens")
+    public void thePageOpens(String string) {
+        Assertions.assertEquals(string, driver.getTitle());
     }
 
-    @Then("we go to the final registration page")
-    public void click_final_next_button(){
-        paymentInformation.setClickFinalNextButton();
+    @Then("the {string} page is open")
+    public void thePersonalInformationPageIsOpen(String string) {
+        Assertions.assertEquals(string, driver.getTitle());
     }
 
-
-
-
-
-
-    public WebDriver getDriver() {
-        return driver;
+    @Then("the {string} page is not open")
+    public void thePageIsNotOpen(String string) {
+        Assertions.assertEquals("Learn Selenium", driver.getTitle());
+    }
+    @Then("the {string} page is opened")
+    public void theTwitterPageOpen(String string){
+        Assertions.assertEquals("Twitter",driver.getPageSource());
     }
 
     @After
     public void cleanUp() {
         driver.quit();
+    } public WebDriver getDriver() {
+        return driver;
     }
-}
 
+
+
+}

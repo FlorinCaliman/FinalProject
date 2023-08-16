@@ -4,51 +4,60 @@ Feature: An example
     Given I am on the main page
     When the email value of "papabear@gmail.com" is input
     And the submit button is clicked
+    Then the newsletter confirmation pop-up appears
 
   Scenario:2 Valid email RO
     Given I am on the main page
     When the email value of "papabear@gmail.ro" is input
     And the submit button is clicked
+    Then the newsletter confirmation pop-up appears
 
   Scenario:3 Negative over character limit
    Given I am on the main page
     When the email value of "dasmdaslkcmlaskmclaskmclsakmclkasmclkas" is input
     And the submit button is clicked
+    Then the newsletter confirmation pop-up is not appears
+
 
   Scenario:4 Click Start the Enrollment button
     Given I am on the main page
     When I click the Start the enrollment button
-
+    Then the "Software Testing | Enrollment" page is open
 
   Scenario:5 Click read more on the virtual case
     Given I am on the main page
     When I click the read more button on the virtual case
+    Then the "Virtual" page opens
 
   Scenario:6 Click read more on the hybrid case
     Given I am on the main page
     When I click the read more button on the hybrid case
+    Then the "Hybrid" page opens
 
   Scenario:7 Click read more on the in person case
     Given I am on the main page
     When I click the read more button on the in person case
+    Then the "In Person" page opens
 
   Scenario:8 Click read more on the fundamental page
     Given I am on the main page
     When I click the read more button on the fundamental page
-
+    Then the "Fundamentals" page opens
 
   Scenario:9 Click read more on the learn selenium
     Given I am on the main page
-    When I click the read more button on the fundamental page
-
+    When I click the read more button on the learn selenium page
+    Then the "Learn Selenium" page is not open
 
   Scenario:10 Expend Frequently asked questions
     Given I am on the main page
     When I click on expand the button
+    Then the question is expand
 
-  Scenario:11 Click the social media icons on the Our Instructor
+  Scenario:11 John Doe twitter icon
     Given I am on the main page
     When I click the Twitter button
+    Then the "Twitter" page is opened
 
   Scenario:12 Click on the return mainpage
     Given I am on the fundamental page
@@ -96,7 +105,6 @@ Feature: An example
   Scenario:18 course option page
     Given I am on the final page registration
     When I clicked the return homepage button
-
 
   Scenario:19 click what you learn
     Given I am on the main page

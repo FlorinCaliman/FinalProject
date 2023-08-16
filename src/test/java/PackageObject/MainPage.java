@@ -36,7 +36,7 @@ public class MainPage {
     private WebElement ReadMoreOnTheFundamentalButton;
 
 
-    @FindBy(xpath = "//*[@id=\"learn-selenium\"]/div/div/div[1]/p[2]/text()")
+    @FindBy(xpath = "//*[@id=\"learn-selenium\"]/div/div/div[1]/h2")
     private WebElement SeleniumHeader;
 
     @FindBy(xpath = "//*[@id=\"learn-selenium\"]/div/div/div[1]/a")
