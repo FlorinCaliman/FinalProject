@@ -341,15 +341,15 @@ public class StepDefinitions {
     }
     @Then("the {string} page is opened")
     public void theLinkedInPageOpen(String string){
-        Assertions.assertEquals("LinkedIn: Log In or Sign Up",driver.getTitle());
+        Assertions.assertEquals("LinkedIn: Log In or Sign Up ",driver.getTitle());
     }
 
-    @After
-    public void cleanUp() {
-        driver.quit();
-    } public WebDriver getDriver() {
-        return driver;
-    }
+    //@After
+    //public void cleanUp() {
+        //driver.quit();
+    //} public WebDriver getDriver() {
+       // return driver;
+    //}
 
 
     @Then("the question is expand")
