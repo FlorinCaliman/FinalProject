@@ -2,14 +2,12 @@ package org.example;
 
 import PackageObject.*;
 import io.cucumber.java.After;
-import io.cucumber.java.bs.A;
-import io.cucumber.java.en.*;
-
-import io.cucumber.java.it.Ma;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Assertions.*;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
@@ -150,10 +148,10 @@ public class StepDefinitions {
         mainPage.clickWhereIsYourInstitutionLocated();
     }
 
-    @When("I click the Twitter button")
-    public void click_the_Twitter_Button() {
+    @When("I click the LinkedIn button")
+    public void click_the_LinkedIn_Button() {
         Utils.scrollToElement(driver, mainPage.getOurInstructorHeader());
-        mainPage.clickOnTwitterButton();
+        mainPage.clickOnLinkedInButton();
     }
 
     @When("I click the return button")
@@ -250,10 +248,8 @@ public class StepDefinitions {
         contactInformation.inputValuePostCodeField(string);
     }
 
-    @And("I clicked the next button")
-    public void clicked_next_button() {
-        courseOption.setClickNextButton();
-    }
+
+
 
     @And("the card number value of {string} is inputted")
 
@@ -312,18 +308,19 @@ public class StepDefinitions {
 
     @Then("we push the next button")
     public void click_next_button() {
-        personalInformation.setClickNextButton();
+        Assertions.assertEquals("Software Testing | Enrollment", driver.getTitle());
     }
 
-   // @Then("we go to the next page")
-    //public void click_next2_button() {
-      //  contactInformation.setClickNextButton();
-    //}
+   @Then("we go to the next page")
+    public void click_next2_button() {
+        Assertions.assertEquals("Software Testing | Enrollment",driver.getTitle());
+    }
 
-    //@Then("we go to the final registration page")
-    //public void click_final_next_button() {
-        //paymentInformation.setClickFinalNextButton();
-    //}
+    @Then("we go to the final registration page")
+    public void click_final_next_button() {
+        Assertions.assertEquals("Software Testing | Enrollment",driver.getTitle());
+
+    }
 
 
 
@@ -343,8 +340,8 @@ public class StepDefinitions {
         Assertions.assertEquals("Learn Selenium", driver.getTitle());
     }
     @Then("the {string} page is opened")
-    public void theTwitterPageOpen(String string){
-        Assertions.assertEquals("Twitter",driver.getPageSource());
+    public void theLinkedInPageOpen(String string){
+        Assertions.assertEquals("LinkedIn: Log In or Sign Up",driver.getTitle());
     }
 
     @After
@@ -355,5 +352,33 @@ public class StepDefinitions {
     }
 
 
+    @Then("the question is expand")
+    public void theQuestionIsExpand() {
+        Assertions.assertTrue(driver.getPageSource().contains("show"));
+    }
 
+    @Then("It's return to main page")
+    public void itSReturnToMainPage() {
+        Assertions.assertEquals("Software Testing Course",driver.getTitle());
+    }
+
+    @Then("I clicked the next button")
+    public void click_next3_button() {
+        Assertions.assertEquals("Software Testing | Enrollment",driver.getTitle());
+    }
+
+    @Then("the mainpage is open")
+    public void theMainpageIsOpen() {
+        Assertions.assertEquals("Software Testing Course",driver.getTitle());
+    }
+
+    @Then("the mainpage is scrolling down to the Learn The Fundamental")
+    public void theMainpageIsScrollingDownToTheLearnTheFundamental() {
+        Assertions.assertEquals("Software Testing Course",driver.getTitle());
+    }
+
+    @Then("the Instagram page is open")
+    public void theInstagramPageIsOpen() {
+        Assertions.assertEquals("Instagram",driver.getTitle());
+    }
 }

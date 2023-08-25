@@ -45,11 +45,11 @@ public class MainPage {
     @FindBy(xpath = "//*[@id=\"questions\"]/div/h2")
     private WebElement FrequentlyAskedQuestionsHeader;
 
-    @FindBy(xpath = "//*[@id=\"questions\"]/div[1]/h3/button")
+    @FindBy(xpath = "//*[@id=\"questions\"]/div[2]/h3/button")
     private WebElement ExpandAskedQuestions;
 
-    @FindBy(xpath = "//*[@id=\"instructors\"]/div/div/div[1]/div/div/a[1]/i")
-    private WebElement TwitterButton;
+    @FindBy(xpath = "//*[@id=\"instructors\"]/div/div/div[1]/div/div/a[3]")
+    private WebElement LinkedInButton;
 
     @FindBy(xpath = "//*[@id=\"instructors\"]/div/div/div[1]/div/div/h3")
     private WebElement OurInstructorHeader;
@@ -124,8 +124,8 @@ public class MainPage {
         return FrequentlyAskedQuestionsHeader;
     }
 
-    public void clickOnTwitterButton() {
-        TwitterButton.click();
+    public void clickOnLinkedInButton() {
+        LinkedInButton.click();
     }
 
     public WebElement getOurInstructorHeader() {
