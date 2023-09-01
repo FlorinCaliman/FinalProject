@@ -72,7 +72,8 @@ Feature: An example
         * the username value of "piersicutamea" is inputted
         * the password value of "12si3de0" is inputted
         * the confirm password value of "12si3de0" is inputted
-    Then we push the next button
+        * we push the next button
+    Then the contact information is apear
 
   Scenario:14 write in  contact information page
     Given I am on the contact information page
@@ -80,13 +81,15 @@ Feature: An example
     And  the phone value of "0745515424" is inputted
          * the country value of "Tunisia" is inputted
          * the city value of "Guvu" is inputted
-          * the post code value of "5451321" is inputted
-    Then we go to the next page
+         * the post code value of "5451321" is inputted
+         * we go to the next page
+    Then the course option is apear
 
   Scenario:15 course option page
     Given I am on the course option page
     When I selected one option
-    Then I clicked the next button
+    And I clicked the next button
+    Then the payment information page is apear
 
   Scenario:16 Payment information page
     Given I am on the Payment Information page
@@ -97,31 +100,35 @@ Feature: An example
        * I selected the May
        * I clicked to drop the select year
        * I selected the 2025
+       * I click to the next button
     Then we go to the final registration page
 
-  Scenario:17 course option page
-    Given I am on the final page registration
-    When I clicked the return homepage button
-    Then the mainpage is open
-
-  Scenario:18 click what you learn
-    Given I am on the main page
-    When I clicked the what you'll learn button
-    Then the mainpage is scrolling down to the Learn The Fundamental
-
-  Scenario:19 Click the social media icons on the Our Instructor
-    Given I am on the main page our instructor
-    When I click the instagram icon
-    Then the Instagram page is open
-
-  Scenario:20 Payment information page
+  Scenario:17 Payment information page
     Given I am on the Payment Information page
     When the Card Holder name is "MIMI" fields
     And the card number value of "44444" is inputted
     * the cvc value of "555" is inputted
     * the expire month value "June" card is selected
-    * the expire year value "2025" card is selected
+    * the expire year value "2028" card is selected
+    * I click to the next button
     Then we go to the final registration page
+
+  Scenario:18 Comeback to the main page
+    Given I am on the final page registration
+    When I clicked the return homepage button
+    Then the mainpage is open
+
+  Scenario:19 click what you learn
+    Given I am on the main page
+    When I clicked the what you'll learn button
+    Then the mainpage is scrolling down to the Learn The Fundamental
+
+  Scenario:20 Click the social media icons on the Our Instructor
+    Given I am on the main page our instructor
+    When I click the instagram icon
+    Then the Instagram page is open
+
+
 
 
 

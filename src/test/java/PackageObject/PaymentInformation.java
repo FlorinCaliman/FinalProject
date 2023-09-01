@@ -30,7 +30,7 @@ public class PaymentInformation {
     private WebElement selectYear;
 
     @FindBy(xpath = "/html/body/div/div/section/div/form/div[4]/div[4]/button[2]")
-    private WebElement clickNextButton;
+    private WebElement clickNext4Button;
 
 
     public PaymentInformation(WebDriver driver) {
@@ -66,7 +66,7 @@ public class PaymentInformation {
     }
 
     public void setClickFinalNextButton() {
-        clickNextButton.click();
+        clickNext4Button.click();
     }
 
     public void selectMonthByXpath(WebDriver driver, String month) {

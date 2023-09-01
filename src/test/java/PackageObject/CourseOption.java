@@ -10,7 +10,7 @@ public class CourseOption {
     @FindBy (xpath = "//*[@id=\"flexRadioButton1\"]")
     private WebElement clickSoftwareTesting;
     @FindBy (xpath = "/html/body/div/div/section/div/form/div[3]/button[2]")
-    private WebElement clickNextButton;
+    private WebElement clickNext3Button;
 
 
     public CourseOption (WebDriver driver){
@@ -20,14 +20,14 @@ public class CourseOption {
     public void setClickSoftwareTesting(){
         clickSoftwareTesting.click();
     }
-    public void setClickNextButton(){
-        clickNextButton.click();
+    public void setClickNext3Button(){
+         clickNext3Button.click();
     }
 
     public void FillInCourseOptionWithValidData(){
 
         setClickSoftwareTesting();
-        setClickNextButton();
+        setClickNext3Button();
     }
 
 

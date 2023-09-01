@@ -195,6 +195,22 @@ public class StepDefinitions {
 
 
     ///////////////@AND//////////////////////////////////////////////////////////////////////////////////////
+    @And("we push the next button")
+    public void click_next_button() {
+        personalInformation.setClickNextButton();
+    }
+    @And("we go to the next page")
+    public void click_next2_button() {
+        contactInformation.setClickNextButton();
+    }
+    @And("I clicked the next button")
+    public void click_next3_button() {
+        courseOption.setClickNext3Button();
+    }
+    @And("I click to the next button")
+    public void click_next4_button(){
+        paymentInformation.setClickFinalNextButton();
+    }
 
 
     @And("the first name value of {string} is inputted")
@@ -248,12 +264,7 @@ public class StepDefinitions {
         contactInformation.inputValuePostCodeField(string);
     }
 
-
-
-
     @And("the card number value of {string} is inputted")
-
-
     public void input_card_number_value(String string) {
         paymentInformation.inputCardNumber(string);
     }
@@ -305,19 +316,8 @@ public class StepDefinitions {
         Assertions.assertTrue(driver.getPageSource().contains("error"));
     }
 
-
-    @Then("we push the next button")
-    public void click_next_button() {
-        Assertions.assertEquals("Software Testing | Enrollment", driver.getTitle());
-    }
-
-   @Then("we go to the next page")
-    public void click_next2_button() {
-        Assertions.assertEquals("Software Testing | Enrollment",driver.getTitle());
-    }
-
     @Then("we go to the final registration page")
-    public void click_final_next_button() {
+    public void go_to_the_final_page() {
         Assertions.assertEquals("Software Testing | Enrollment",driver.getTitle());
 
     }
@@ -343,13 +343,12 @@ public class StepDefinitions {
     public void theLinkedInPageOpen(String string){
         Assertions.assertEquals("LinkedIn: Log In or Sign Up ",driver.getTitle());
     }
-
-    //@After
-    //public void cleanUp() {
-        //driver.quit();
+   // @After
+   // public void cleanUp() {
+      //  driver.quit();
     //} public WebDriver getDriver() {
-       // return driver;
-    //}
+     //  return driver;
+  //  }
 
 
     @Then("the question is expand")
@@ -362,10 +361,6 @@ public class StepDefinitions {
         Assertions.assertEquals("Software Testing Course",driver.getTitle());
     }
 
-    @Then("I clicked the next button")
-    public void click_next3_button() {
-        Assertions.assertEquals("Software Testing | Enrollment",driver.getTitle());
-    }
 
     @Then("the mainpage is open")
     public void theMainpageIsOpen() {
@@ -380,5 +375,20 @@ public class StepDefinitions {
     @Then("the Instagram page is open")
     public void theInstagramPageIsOpen() {
         Assertions.assertEquals("Instagram",driver.getTitle());
+    }
+
+    @Then("the contact information is apear")
+    public void theContactInformationIsApear() {
+        Assertions.assertEquals("Software Testing | Enrollment",driver.getTitle());
+    }
+
+    @Then("the course option is apear")
+    public void theCourseOptionIsApear() {
+        Assertions.assertEquals("Software Testing | Enrollment",driver.getTitle());
+    }
+
+    @Then("the payment information page is apear")
+    public void thePaymentInformationPageIsApear() {
+        Assertions.assertEquals("Software Testing | Enrollment",driver.getTitle());
     }
 }
