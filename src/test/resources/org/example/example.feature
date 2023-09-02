@@ -73,7 +73,7 @@ Feature: An example
         * the password value of "12si3de0" is inputted
         * the confirm password value of "12si3de0" is inputted
         * we push the next button
-    Then the contact information is apear
+    Then the contact information is appear
 
   Scenario:14 write in  contact information page
     Given I am on the contact information page
@@ -83,13 +83,13 @@ Feature: An example
          * the city value of "Guvu" is inputted
          * the post code value of "5451321" is inputted
          * we go to the next page
-    Then the course option is apear
+    Then the course option is appear
 
   Scenario:15 course option page
     Given I am on the course option page
     When I selected one option
     And I clicked the next button
-    Then the payment information page is apear
+    Then the payment information page is appear
 
   Scenario:16 Payment information page
     Given I am on the Payment Information page
@@ -127,6 +127,8 @@ Feature: An example
     Given I am on the main page our instructor
     When I click the instagram icon
     Then the Instagram page is open
+
+
 
 
 

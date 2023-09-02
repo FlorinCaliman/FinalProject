@@ -64,6 +64,12 @@ public class MainPage {
     private WebElement WhatYouLearnButton;
     @FindBy(xpath = "//*[@id=\"instructors\"]/div/div/div[3]/div/div/a[4]")
     private WebElement InstagramIcon;
+    @FindBy(xpath = "//*[@id=\"map\"]/div[3]/div[4]/div/button")
+    private WebElement clickIOnTheMap;
+    @FindBy(xpath = "//*[@id=\"map\"]/div[3]/div[4]/div/div/a[2]")
+    private WebElement OpenStreetMap;
+    @FindBy(xpath = "/html/body/section[8]/div/div/div[1]/ul/li[5]/span")
+    private WebElement contactInfoHeader;
 
 
     public MainPage(WebDriver driver) {
@@ -146,6 +152,15 @@ public class MainPage {
 
     public void WhatYouLearn() {
         WhatYouLearnButton.click();
+    }
+    public void setClickIOnTheMap(){
+        clickIOnTheMap.click();
+    }
+    public WebElement getDownPageContactInfo(){
+        return contactInfoHeader;
+    }
+    public void OpenStreetMap(){
+        OpenStreetMap.click();
     }
 
 }

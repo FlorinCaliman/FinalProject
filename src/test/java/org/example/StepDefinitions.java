@@ -2,11 +2,14 @@ package org.example;
 
 import PackageObject.*;
 import io.cucumber.java.After;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.jupiter.api.Assertions;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -190,7 +193,6 @@ public class StepDefinitions {
     public void click_the_instagram_icon() {
         Utils.scrollToElement(driver, mainPage.getOurInstructorHeader());
         mainPage.getClickTheInstagramIcon();
-
     }
 
 
@@ -304,6 +306,9 @@ public class StepDefinitions {
         paymentInformation.selectYearByXpath(driver, year);
 
     }
+
+
+
 ////////////////////////@THEN/////////////////////////////////////
 
     @Then("the newsletter confirmation pop-up appears")
@@ -321,9 +326,6 @@ public class StepDefinitions {
         Assertions.assertEquals("Software Testing | Enrollment",driver.getTitle());
 
     }
-
-
-
 
     @Then("the {string} page opens")
     public void thePageOpens(String string) {
@@ -343,12 +345,10 @@ public class StepDefinitions {
     public void theLinkedInPageOpen(String string){
         Assertions.assertEquals("LinkedIn: Log In or Sign Up ",driver.getTitle());
     }
-   // @After
-   // public void cleanUp() {
-      //  driver.quit();
-    //} public WebDriver getDriver() {
-     //  return driver;
-  //  }
+
+    public WebDriver getDriver() {
+       return driver;
+    }
 
 
     @Then("the question is expand")
@@ -377,18 +377,27 @@ public class StepDefinitions {
         Assertions.assertEquals("Instagram",driver.getTitle());
     }
 
-    @Then("the contact information is apear")
+    @Then("the contact information is appear")
     public void theContactInformationIsApear() {
         Assertions.assertEquals("Software Testing | Enrollment",driver.getTitle());
     }
 
-    @Then("the course option is apear")
+    @Then("the course option is appear")
     public void theCourseOptionIsApear() {
         Assertions.assertEquals("Software Testing | Enrollment",driver.getTitle());
     }
 
-    @Then("the payment information page is apear")
+    @Then("the payment information page is appear")
     public void thePaymentInformationPageIsApear() {
         Assertions.assertEquals("Software Testing | Enrollment",driver.getTitle());
+    }
+
+    @After
+    public void cleanUp(Scenario scenario) {
+        if (scenario.isFailed()) {
+            final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+            scenario.attach(screenshot, "image/jpg", "");
+        }
+        driver.quit();
     }
 }
